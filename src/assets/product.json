@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Laptop",
+        "price": 65000,
+        "description": "High performance laptop",
+        "image": "assets/images/laptop.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Mobile",
+        "price": 25000,
+        "description": "Latest smartphone",
+        "image": "assets/images/mobile.webp"
+    },
+    {
+        "id": 3,
+        "name": "Tablet",
+        "price": 30000,
+        "description": "Lightweight tablet",
+        "image": "assets/images/tablet.webp"
+    }
+]

@@ -18,6 +18,7 @@ export class AuthService {
   login(username: string, password: string) {
     const valid = this.users.some(u => u.username === username && u.password === password);
     if (valid) {
+      console.log("value stored in session");
       localStorage.setItem('isLoggedIn', 'true');
     }
     return valid;
