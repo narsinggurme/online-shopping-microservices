@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { LoginComponent } from '../../Authentication/login/login.component';
 import { AuthService } from '../../Services/auth.service';
 import { CommonModule } from '@angular/common';
 
@@ -16,8 +15,12 @@ export class AppComponent {
 
   constructor(private authService: AuthService, private route: Router) { }
 
+  get isLoggedIn() {
+    return this.authService.isLoggedIn();
+  }
+
   logout() {
-    this.authService.logout;
+    this.authService.logout();
     this.route.navigate(["/login"]);
 
   }

@@ -1,7 +1,29 @@
 /* Hero section background */
-.hero-section {
+/* .hero-section {
     height: 60vh;
     background: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff') center/cover no-repeat;
+} */
+.hero-section {
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+    animation: slide-animation 5s infinite;
+}
+
+/* Smooth left-right sliding effect */
+@keyframes slide-animation {
+    0% {
+        background-position: center;
+    }
+
+    50% {
+        background-position: left;
+    }
+
+    100% {
+        background-position: center;
+    }
 }
 
 /* Category cards */

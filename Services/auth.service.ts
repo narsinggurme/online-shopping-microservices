@@ -7,7 +7,7 @@ export class AuthService {
 
   constructor() { }
   private users = [
-    { username: 'user', password: '12345' }
+    { username: 'user', password: '1234' }
   ];
 
   register(user: any) {

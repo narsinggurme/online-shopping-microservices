@@ -1,31 +1,52 @@
-<div class="container d-flex justify-content-center align-items-center vh-100">
-    <div class="card shadow-lg p-4" style="width: 400px; border-radius: 10px;">
+<div class="login-bg">
 
-        <h3 class="text-center mb-4">Login</h3>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
 
-        <form (ngSubmit)="login()">
+        <div class="login-card shadow-lg p-4">
 
-            <div class="mb-3">
-                <label class="form-label">Username</label>
-                <input type="text" class="form-control" placeholder="Enter username" [(ngModel)]="username"
-                    name="username" required>
-            </div>
+            <!-- Tabs -->
+            <ul class="nav nav-tabs mb-3 justify-content-center" id="roleTabs">
+                <li class="nav-item">
+                    <button class="nav-link" [class.active]="role === 'user'" (click)="role = 'user'">User
+                        Login</button>
+                </li>
 
-            <div class="mb-3">
-                <label class="form-label">Password</label>
-                <input type="password" class="form-control" placeholder="Enter password" [(ngModel)]="password"
-                    name="password" required>
-            </div>
+                <li class="nav-item">
+                    <button class="nav-link" [class.active]="role === 'admin'" (click)="role = 'admin'">Admin
+                        Login</button>
+                </li>
+            </ul>
 
-            <button class="btn btn-warning w-100 mt-2" type="submit">Login</button>
-        </form>
+            <h3 class="text-center mb-4">{{ role | titlecase }} Login</h3>
 
-        <p class="text-danger text-center mt-3">{{errorMessage}}</p>
+            <form (ngSubmit)="login()">
 
-        <p class="text-center mt-3">
-            Don't have an account?
-            <a routerLink="/register" class="text-primary fw-bold">Register</a>
-        </p>
+                <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    <input type="text" class="form-control" placeholder="Enter username" [(ngModel)]="username"
+                        name="username" required>
+                </div>
 
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" placeholder="Enter password" [(ngModel)]="password"
+                        name="password" required>
+                </div>
+
+                <button class="btn btn-warning w-100 mt-2" type="submit">
+                    Login as {{ role | titlecase }}
+                </button>
+
+            </form>
+
+            <p class="text-danger text-center mt-3">{{ errorMessage }}</p>
+
+            <p class="text-center mt-3" *ngIf="role === 'user'">
+                Don't have an account?
+                <a routerLink="/register" class="text-primary fw-bold">Register</a>
+            </p>
+
+        </div>
     </div>
+
 </div>

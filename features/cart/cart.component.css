@@ -1,0 +1,10 @@
+.page-header {
+    margin-top: 20px;
+    /* So navbar doesn't overlap */
+    margin-left: 20px;
+}
+
+.page-header h2 {
+    font-size: 28px;
+    font-weight: 600;
+}

@@ -19,5 +19,26 @@
         "price": 30000,
         "description": "Lightweight tablet",
         "image": "assets/images/tablet.webp"
+    },
+    {
+        "id": 4,
+        "name": "Tablet",
+        "price": 30000,
+        "description": "Lightweight tablet",
+        "image": "assets/images/tablet.webp"
+    },
+    {
+        "id": 3,
+        "name": "Tablet",
+        "price": 30000,
+        "description": "Lightweight tablet",
+        "image": "assets/images/tablet.webp"
+    },
+    {
+        "id": 3,
+        "name": "Tablet",
+        "price": 30000,
+        "description": "Lightweight tablet",
+        "image": "assets/images/tablet.webp"
     }
 ]
