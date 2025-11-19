@@ -1,10 +1,24 @@
-.page-header {
-    margin-top: 20px;
-    /* So navbar doesn't overlap */
-    margin-left: 20px;
+.men-modern-header {
+    margin-top: 100px;
+    margin-bottom: 40px;
 }
 
-.page-header h2 {
-    font-size: 28px;
-    font-weight: 600;
+.men-modern-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #343a40;
+}
+
+.men-modern-header .line {
+    width: 70px;
+    height: 4px;
+    background: #007bff;
+    /* Blue masculine highlight */
+    margin: 8px auto;
+    border-radius: 4px;
+}
+
+.men-modern-header .subtitle {
+    font-size: 15px;
+    color: #6c757d;
 }

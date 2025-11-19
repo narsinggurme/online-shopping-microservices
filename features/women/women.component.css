@@ -1,10 +1,19 @@
-.page-header {
-    margin-top: 20px;
-    /* So navbar doesn't overlap */
-    margin-left: 20px;
+.luxury-header {
+    margin-top: 100px;
+    margin-bottom: 30px;
 }
 
-.page-header h2 {
-    font-size: 28px;
-    font-weight: 600;
+.luxury-header h2 {
+    font-size: 34px;
+    font-weight: 700;
+    color: #b8860b;
+    /* Gold look */
+    letter-spacing: 1px;
+}
+
+.luxury-header .subtitle {
+    font-size: 15px;
+    color: #8a8a8a;
+    margin-top: 5px;
+    font-style: italic;
 }
