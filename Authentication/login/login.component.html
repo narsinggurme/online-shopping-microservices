@@ -1,52 +1,41 @@
-<div class="login-bg">
+<div class="login-wrapper">
 
-    <div class="container d-flex justify-content-center align-items-center vh-100">
+    <!-- Floating Icons -->
+    <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" class="float-icon icon1">
+    <img src="https://cdn-icons-png.flaticon.com/512/3523/3523063.png" class="float-icon icon2">
+    <img src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png" class="float-icon icon3">
 
-        <div class="login-card shadow-lg p-4">
+    <div class="login-card">
 
-            <!-- Tabs -->
-            <ul class="nav nav-tabs mb-3 justify-content-center" id="roleTabs">
-                <li class="nav-item">
-                    <button class="nav-link" [class.active]="role === 'user'" (click)="role = 'user'">User
-                        Login</button>
-                </li>
-
-                <li class="nav-item">
-                    <button class="nav-link" [class.active]="role === 'admin'" (click)="role = 'admin'">Admin
-                        Login</button>
-                </li>
-            </ul>
-
-            <h3 class="text-center mb-4">{{ role | titlecase }} Login</h3>
-
-            <form (ngSubmit)="login()">
-
-                <div class="mb-3">
-                    <label class="form-label">Username</label>
-                    <input type="text" class="form-control" placeholder="Enter username" [(ngModel)]="username"
-                        name="username" required>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Password</label>
-                    <input type="password" class="form-control" placeholder="Enter password" [(ngModel)]="password"
-                        name="password" required>
-                </div>
-
-                <button class="btn btn-warning w-100 mt-2" type="submit">
-                    Login as {{ role | titlecase }}
-                </button>
-
-            </form>
-
-            <p class="text-danger text-center mt-3">{{ errorMessage }}</p>
-
-            <p class="text-center mt-3" *ngIf="role === 'user'">
-                Don't have an account?
-                <a routerLink="/register" class="text-primary fw-bold">Register</a>
-            </p>
-
+        <!-- Logo -->
+        <div class="logo-box">
+            <i class="fas fa-shopping-bag"></i>
         </div>
+
+        <h2 class="title">Welcome Back</h2>
+        <p class="subtitle">Login to continue shopping</p>
+
+        <form (ngSubmit)="login()">
+
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" [(ngModel)]="username" name="username" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" [(ngModel)]="password" name="password" required>
+            </div>
+
+            <button class="login-btn" type="submit">Login</button>
+
+        </form>
+
+        <p class="register-text">
+            New to our store?
+            <a routerLink="/register">Create an account</a>
+        </p>
+
     </div>
 
 </div>

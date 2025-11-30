@@ -1,27 +1,71 @@
-/* Full-page background */
-.login-bg {
-    background: linear-gradient(135deg, #c6a8a8, #cb2bd0);
-    background-size: cover;
+/* Background */
+.login-wrapper {
     height: 100vh;
+    background: linear-gradient(135deg, #8e2de2, #4a00e0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
+    overflow: hidden;
 }
 
-/* Glassmorphic Login Card */
+/* Floating product icons */
+.float-icon {
+    position: absolute;
+    width: 90px;
+    opacity: 0.18;
+    animation: float 5s infinite ease-in-out;
+}
+
+.icon1 {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.icon2 {
+    top: 60%;
+    right: 12%;
+    animation-delay: 1.2s;
+}
+
+.icon3 {
+    bottom: 10%;
+    left: 50%;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Login Card */
 .login-card {
     width: 420px;
-    border-radius: 15px;
-    backdrop-filter: blur(12px);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 35px;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
     animation: fadeIn 0.8s ease-in-out;
 }
 
-/* Animation */
+/* Card Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(25px);
     }
 
     to {
@@ -30,40 +74,81 @@
     }
 }
 
-/* Tabs */
-.nav-tabs .nav-link {
-    background: transparent;
-    border: none;
-    color: white;
-    font-weight: 600;
-    padding: 10px 20px;
-}
-
-.nav-tabs .nav-link.active {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
+/* Icon Logo */
+.logo-box {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 30px;
     color: #ffe082;
 }
 
-/* Form Inputs */
-.form-control {
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 10px;
+/* Text */
+.title {
+    text-align: center;
+    color: white;
+    font-weight: 700;
 }
 
-.form-control:focus {
-    box-shadow: none;
-    border: 2px solid #ffca28;
+.subtitle {
+    text-align: center;
+    color: #f0e9ff;
+    margin-bottom: 20px;
+}
+
+/* Inputs */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    color: #eee;
+    font-size: 14px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    outline: none;
+    font-size: 15px;
 }
 
 /* Button */
-.btn-warning {
-    border-radius: 10px;
-    font-weight: 600;
-    padding: 10px 0;
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ffca28;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #ffc107;
 }
 
 /* Register Link */
-a {
+.register-text {
+    text-align: center;
+    margin-top: 15px;
+    color: white;
+}
+
+.register-text a {
+    color: #ffe082;
+    font-weight: bold;
     text-decoration: none;
 }
