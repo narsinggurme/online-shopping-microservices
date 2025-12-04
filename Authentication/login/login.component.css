@@ -1,4 +1,3 @@
-/* Background */
 .login-wrapper {
     height: 100vh;
     background: linear-gradient(135deg, #8e2de2, #4a00e0);
@@ -9,7 +8,6 @@
     overflow: hidden;
 }
 
-/* Floating product icons */
 .float-icon {
     position: absolute;
     width: 90px;
@@ -49,7 +47,6 @@
     }
 }
 
-/* Login Card */
 .login-card {
     width: 420px;
     padding: 35px;
@@ -61,7 +58,6 @@
     animation: fadeIn 0.8s ease-in-out;
 }
 
-/* Card Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -74,7 +70,6 @@
     }
 }
 
-/* Icon Logo */
 .logo-box {
     width: 70px;
     height: 70px;
@@ -90,7 +85,6 @@
     color: #ffe082;
 }
 
-/* Text */
 .title {
     text-align: center;
     color: white;
@@ -103,7 +97,6 @@
     margin-bottom: 20px;
 }
 
-/* Inputs */
 .input-group {
     margin-bottom: 15px;
 }
@@ -124,7 +117,6 @@
     font-size: 15px;
 }
 
-/* Button */
 .login-btn {
     width: 100%;
     padding: 12px;
@@ -140,7 +132,6 @@
     background: #ffc107;
 }
 
-/* Register Link */
 .register-text {
     text-align: center;
     margin-top: 15px;
