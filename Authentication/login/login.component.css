@@ -143,3 +143,10 @@
     font-weight: bold;
     text-decoration: none;
 }
+
+.error-message {
+    color: rgb(197, 162, 37);
+    font-size: 14px;
+    margin: 10px 0;
+    text-align: center;
+}
