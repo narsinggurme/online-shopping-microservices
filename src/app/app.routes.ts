@@ -8,6 +8,7 @@ import { MenComponent } from '../../features/men/men.component';
 import { WomenComponent } from '../../features/women/women.component';
 import { ElectronicsComponent } from '../../features/electronics/electronics.component';
 import { CartComponent } from '../../features/cart/cart.component';
+import { ProductDetailsComponent } from '../../features/product-details/product-details.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -18,6 +19,8 @@ export const routes: Routes = [
     { path: 'men', component: MenComponent },
     { path: 'women', component: WomenComponent },
     { path: 'electronics', component: ElectronicsComponent },
-    { path: 'cart', component: CartComponent }
+    { path: 'cart', component: CartComponent },
+    { path: 'product-details/:id', component: ProductDetailsComponent }
+
 
 ];

@@ -1,74 +1,89 @@
-.product-detail-card {
-    border-radius: 18px;
-    background: #ffffff;
-    transition: transform 0.3s ease-in-out;
-}
-
-.product-detail-card:hover {
-    transform: scale(1.01);
-}
-
-.product-img {
-    max-height: 350px;
-    object-fit: contain;
-    border-radius: 12px;
-}
-
-h2 {
-    font-size: 28px;
-}
-
-.text-muted {
-    font-size: 16px;
-}
-
-.btn {
-    padding: 10px 15px;
-    border-radius: 10px;
-    font-size: 16px;
-}
-
-.extra-margin-top {
+.product-showcase {
     margin-top: 100px;
 }
 
-.rating i {
-    font-size: 22px;
-    margin-right: 3px;
+.premium-card {
+    border-radius: 25px;
+    background: linear-gradient(135deg, #ffffff 0%, #f9fbff 100%);
+    backdrop-filter: blur(12px);
+    transition: 0.3s ease-in-out;
 }
 
-.text-warning {
-    color: #ffc107 !important;
-}
-
-.text-muted {
-    color: #b2b2b2 !important;
-}
-
-.review-box {
-    background: #fff;
-    border: 1px solid #eee;
-    transition: 0.3s;
-}
-
-.review-box:hover {
+.premium-card:hover {
     transform: scale(1.02);
-    border-color: #ddd;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-.product-detail-card {
-    border-radius: 15px;
+.image-box {
+    background: linear-gradient(135deg, #e6f0ff 0%, #ffffff 100%);
+    border-radius: 25px 0 0 25px;
 }
 
-.product-img {
-    max-height: 320px;
-    object-fit: contain;
+.premium-img {
+    max-height: 340px;
+    filter: drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.2));
+    transition: transform 0.4s ease;
 }
 
-.extra-margin-top {
-    margin-top: 120px !important;
+.premium-img:hover {
+    transform: scale(1.08);
 }
 
-.text-muted {
-    color: #6c757d !important;
+.premium-title {
+    font-size: 32px;
+    color: #2c3e50;
+}
+
+.premium-badge {
+    background: #ff4646;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.product-desc {
+    font-size: 17px;
+    color: #73818f;
+}
+
+.price-tag {
+    color: #e63946;
+    font-weight: 800;
+    font-size: 32px;
+}
+
+.btn-premium {
+    background: linear-gradient(90deg, #ff502f, #ff8d53);
+    border: 0;
+    color: white;
+    font-size: 18px;
+    border-radius: 14px;
+    padding: 12px;
+    transition: 0.3s ease;
+}
+
+.btn-premium:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 102, 0, 0.4);
+}
+
+.review-item {
+    background: #ffffff;
+    transition: 0.3s;
+    border: 1px solid #eee;
+}
+
+.review-item:hover {
+    transform: scale(1.02);
+    border-color: #ccc;
+}
+
+.review-user {
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.review-text {
+    color: #555;
 }
