@@ -4,7 +4,7 @@
 </div>
 
 <div class="product-container">
-    <div class="product-card" *ngFor="let p of products">
+    <div class="product-card" *ngFor="let p of products" (click)="viewProduct(p.id)">
 
         <img [src]="p.image" alt="{{ p.name }}" class="product-image" />
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../Services/product.service';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -15,13 +15,16 @@ export class ProductsComponent implements OnInit {
 
   products: any[] = [];
 
-  constructor(private productServie: ProductService) { }
+  constructor(private productServie: ProductService, private router: Router) { }
 
   ngOnInit(): void {
     this.productServie.getProducts().subscribe(data => {
       this.products = data;
     }
     );
+  }
+  viewProduct(id: number) {
+    this.router.navigate(['/product-details', id]);
   }
 
 }
