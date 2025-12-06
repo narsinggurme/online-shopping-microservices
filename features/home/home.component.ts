@@ -38,5 +38,24 @@ export class HomeComponent implements OnInit {
   get currentHeroBg() {
     return `url('${this.heroImages[this.currentIndex]}')`;
   }
+  categories = [
+    { name: 'Men', description: 'Explore latest men’s fashion', route: '/category/men' },
+    { name: 'Women', description: 'Trendy women’s wear & accessories', route: '/category/women' },
+    { name: 'Electronics', description: 'Smart gadgets & devices', route: '/category/electronics' },
+    { name: 'Home & Living', description: 'Decor, furniture & essentials', route: '/category/home' },
+    { name: 'Sports', description: 'Sports gear & outdoor equipment', route: '/category/sports' }
+  ];
+
+  featuredProducts = [
+    { name: 'Men\'s Leather Jacket', price: 3499, image: 'https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGphY2tldHxlbnwwfHwwfHx8MA%3D%3D' },
+    { name: 'Women\'s Handbag', price: 1299, image: 'https://plus.unsplash.com/premium_photo-1723826753083-2309f7203ab1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aGFuZGJhZ3xlbnwwfHwwfHx8MA%3D%3D' },
+    { name: 'Wireless Earbuds', price: 1999, image: 'https://placehold.co/250x250?text=Earbuds' },
+    { name: 'Smartwatch', price: 4999, image: 'https://placehold.co/250x250?text=Smartwatch' }
+  ];
+
+  navigateToCategory(route: string) {
+    // Use Angular router to navigate
+    window.location.href = route; // or this.router.navigate([route]) if using Angular Router
+  }
 
 }

@@ -13,11 +13,11 @@
     <h2 class="text-center mb-4">Shop by Category</h2>
 
     <div class="row g-4">
-        <div class="col-md-4" *ngFor="let cat of ['Men', 'Women', 'Electronics']">
+        <div class="col-md-4" *ngFor="let cat of categories">
             <div class="category-card p-4 text-center shadow rounded">
-                <h4>{{cat}}</h4>
-                <p>Explore our wide range of products</p>
-                <button class="btn btn-outline-primary">View</button>
+                <h4>{{cat.name}}</h4>
+                <p>{{cat.description}}</p>
+                <button class="btn btn-outline-primary" (click)="navigateToCategory(cat.route)">View</button>
             </div>
         </div>
     </div>
@@ -28,12 +28,12 @@
     <h2 class="text-center mb-4">Featured Products</h2>
 
     <div class="row g-4">
-        <div class="col-md-3" *ngFor="let item of [1,2,3,4]">
+        <div class="col-md-3" *ngFor="let product of featuredProducts">
             <div class="card product-card shadow-sm">
-                <img src="https://placehold.co/250x250" class="card-img-top" alt="Product">
+                <img [src]="product.image" class="card-img-top" alt="{{product.name}}">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Product Name</h5>
-                    <p class="card-text">₹999</p>
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <p class="card-text">₹{{product.price}}</p>
                     <button class="btn btn-primary w-100">Add to Cart</button>
                 </div>
             </div>
