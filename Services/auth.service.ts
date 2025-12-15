@@ -1,34 +1,28 @@
 import { Injectable } from '@angular/core';
+import { keycloak } from '../src/app/KeyCloak/keycloak-init';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
 
-  constructor() { }
-  private users = [
-    { username: 'user', password: '1234' }
-  ];
-
-  register(user: any) {
-    this.users.push(user);
-    return true;
+  login(): void {
+    keycloak.login({
+      redirectUri: window.location.origin + '/home', // redirect after login
+    });
   }
 
-  login(username: string, password: string) {
-    const valid = this.users.some(u => u.username === username && u.password === password);
-    if (valid) {
-      console.log("value stored in session");
-      localStorage.setItem('isLoggedIn', 'true');
-    }
-    return valid;
+  logout(): void {
+    keycloak.logout({
+      redirectUri: window.location.origin, // back to home
+    });
   }
 
-  logout() {
-    localStorage.removeItem('isLoggedIn');
+  isLoggedIn(): boolean {
+    return !!keycloak.token;
   }
 
-  isLoggedIn() {
-    return localStorage.getItem('isLoggedIn') === 'true';
+  getUsername(): string | undefined {
+    return keycloak.tokenParsed?.['preferred_username'];
   }
 }

@@ -8,10 +8,12 @@
         <li><a routerLink="/cart">Cart</a></li>
     </ul>
 
-    <button class="btn btn-secondary login-btn" *ngIf="!isLoggedIn" routerLink="/login">
+    <!-- 🔑 LOGIN (Keycloak) -->
+    <button class="btn btn-secondary login-btn" *ngIf="!isLoggedIn" (click)="login()">
         Login
     </button>
 
+    <!-- 🚪 LOGOUT -->
     <button class="btn btn-danger logout-btn" *ngIf="isLoggedIn" (click)="logout()">
         Logout
     </button>

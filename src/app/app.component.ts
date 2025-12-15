@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../Services/auth.service';
+import { RouterOutlet, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,17 +11,17 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Online_Shopping';
-
-  constructor(private authService: AuthService, private route: Router) { }
+  constructor(public authService: AuthService) { }
 
   get isLoggedIn() {
     return this.authService.isLoggedIn();
   }
 
+  login() {
+    this.authService.login();
+  }
+
   logout() {
     this.authService.logout();
-    this.route.navigate(["/login"]);
-
   }
 }

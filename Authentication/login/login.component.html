@@ -15,27 +15,14 @@
         <h2 class="title">Welcome Back</h2>
         <p class="subtitle">Login to continue shopping</p>
 
-        <form (ngSubmit)="login()">
-
-            <div class="input-group">
-                <label>Username</label>
-                <input type="text" [(ngModel)]="username" name="username" required>
-            </div>
-
-            <div class="input-group">
-                <label>Password</label>
-                <input type="password" [(ngModel)]="password" name="password" required>
-            </div>
-
-            <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
-
-            <button class="login-btn" type="submit">Login</button>
-
-        </form>
+        <!-- 🔑 Keycloak Login -->
+        <button class="login-btn" (click)="login()">
+            Login with Keycloak
+        </button>
 
         <p class="register-text">
             New to our store?
-            <a routerLink="/register">Create an account</a>
+            <span>Accounts are managed securely via Keycloak</span>
         </p>
 
     </div>
