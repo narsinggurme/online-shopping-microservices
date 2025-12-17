@@ -1,28 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { ProductService } from '../../Services/product.service';
+import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Product } from '../../src/app/models/product.model';
+import { ProductService } from '../../Services/product.service';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.css'
+  styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
 
-  product: any;
+  product!: Product;
 
-
-  constructor(private route: ActivatedRoute, private productService: ProductService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductService
+  ) { }
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = this.route.snapshot.paramMap.get('id');
 
-    this.productService.getProductById(id).subscribe(product => {
-      this.product = product;
-    });
+    if (id) {
+      this.productService.getProductById(id).subscribe({
+        next: product => this.product = product,
+        error: err => console.error(err)
+      });
+    }
   }
-
 }
