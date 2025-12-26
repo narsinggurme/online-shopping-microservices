@@ -1,4 +1,31 @@
-<div class="page-header wishlist-header text-center">
-    <h2 class="fw-bold">Your Wishlist</h2>
-    <p class="subtitle">Save your favorite items for later</p>
+<div class="page-header cart-header text-center">
+    <h2>Your Cart</h2>
+    <p class="subtitle">Review your selected items</p>
+</div>
+
+<div *ngIf="(cartItems$ | async)?.length === 0" class="empty-cart text-center my-4">
+    <p>Your cart is empty.</p>
+</div>
+
+<div *ngFor="let item of cartItems$ | async" class="cart-card">
+    <img [src]="item.product.imageUrl" alt="{{item.product.name}}" class="cart-img" />
+
+    <div class="cart-details">
+        <h4>{{ item.product.name }}</h4>
+        <p>₹{{ item.product.price }} x {{ item.quantity }} = ₹{{ item.product.price * item.quantity }}</p>
+
+        <div class="quantity-controls">
+            <button (click)="updateQty(item.product.id, item.quantity - 1)" class="qty-btn">-</button>
+            <input type="number" [value]="item.quantity" min="1" (change)="updateQtyInput(item.product.id, $event)"
+                class="quantity-input" />
+            <button (click)="updateQty(item.product.id, item.quantity + 1)" class="qty-btn">+</button>
+        </div>
+    </div>
+
+    <button (click)="remove(item.product.id)" class="btn btn-danger remove-btn">Remove</button>
+</div>
+
+<div class="cart-total mt-4">
+    <h3>Total: ₹{{ total }}</h3>
+    <button class="btn btn-primary mt-2">Proceed to Checkout</button>
 </div>
