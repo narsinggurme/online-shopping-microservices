@@ -3,6 +3,7 @@ import { ProductService } from '../../Services/product.service';
 import { Router, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../Services/cart.service';
 
 @Component({
   selector: 'app-products',
@@ -15,7 +16,7 @@ export class ProductsComponent implements OnInit {
 
   products: any[] = [];
 
-  constructor(private productServie: ProductService, private router: Router) { }
+  constructor(private productServie: ProductService, private router: Router, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.productServie.getProducts().subscribe(data => {
@@ -25,6 +26,9 @@ export class ProductsComponent implements OnInit {
   }
   viewProduct(id: number) {
     this.router.navigate(['/product-details', id]);
+  }
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
   }
 
 }

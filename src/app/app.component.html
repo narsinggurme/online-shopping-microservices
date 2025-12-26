@@ -5,7 +5,14 @@
         <li><a routerLink="/men">Men</a></li>
         <li><a routerLink="/women">Women</a></li>
         <li><a routerLink="/electronics">Electronics</a></li>
-        <li><a routerLink="/cart">Cart</a></li>
+        <li class="cart-item">
+            <a routerLink="/cart">
+                Cart
+                <span class="cart-badge" *ngIf="cartCount > 0">
+                    {{ cartCount }}
+                </span>
+            </a>
+        </li>
     </ul>
 
     <!-- 🔑 LOGIN (Keycloak) -->
