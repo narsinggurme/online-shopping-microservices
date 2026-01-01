@@ -14,13 +14,10 @@
             </a>
         </li>
     </ul>
-
-    <!-- 🔑 LOGIN (Keycloak) -->
     <button class="btn btn-secondary login-btn" *ngIf="!isLoggedIn" (click)="login()">
         Login
     </button>
 
-    <!-- 🚪 LOGOUT -->
     <button class="btn btn-danger logout-btn" *ngIf="isLoggedIn" (click)="logout()">
         Logout
     </button>

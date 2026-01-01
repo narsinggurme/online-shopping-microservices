@@ -23,6 +23,14 @@ export class ProductService {
     return this.http.get<Product[]>(this.apiUrl, { headers: this.getHeaders() });
   }
 
+  getProductsByCategory(category: string): Observable<Product[]> {
+    return this.http.get<Product[]>(
+      `${this.apiUrl}?category=${category}`,
+      { headers: this.getHeaders() }
+    );
+  }
+
+
   getProductById(id: string): Observable<Product> {
     return this.http.get<Product>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() });
   }

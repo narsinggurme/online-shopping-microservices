@@ -1,24 +1,127 @@
+/* ===== HEADER ===== */
 .men-modern-header {
     margin-top: 100px;
-    margin-bottom: 40px;
+    padding: 40px 0 20px;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
 }
 
 .men-modern-header h2 {
-    font-size: 36px;
+    font-size: 2.4rem;
     font-weight: 700;
-    color: #343a40;
+    letter-spacing: 1px;
 }
 
 .men-modern-header .line {
     width: 70px;
-    height: 4px;
-    background: #007bff;
-    /* Blue masculine highlight */
-    margin: 8px auto;
-    border-radius: 4px;
+    height: 3px;
+    background: #00e0ff;
+    margin: 10px auto;
+    border-radius: 10px;
 }
 
 .men-modern-header .subtitle {
-    font-size: 15px;
-    color: #6c757d;
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+
+/* ===== PRODUCT GRID (AUTO WRAP) ===== */
+.product-container {
+    padding: 50px 6%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+    background: #0b0b0b;
+}
+
+/* ===== CARD ===== */
+.product-card {
+    background: #121212;
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0, 224, 255, 0.25);
+}
+
+/* ===== IMAGE (FIXED RATIO) ===== */
+.product-image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    /* 🔥 KEY FIX */
+    object-fit: cover;
+    /* keeps image proportional */
+    display: block;
+}
+
+/* ===== INFO ===== */
+.product-info {
+    padding: 18px;
+    color: #fff;
+}
+
+.product-info h3 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+
+.product-info .desc {
+    font-size: 0.85rem;
+    color: #b5b5b5;
+    line-height: 1.4;
+    height: 40px;
+    overflow: hidden;
+}
+
+.product-info .price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 12px 0;
+    color: #00e0ff;
+}
+
+/* ===== BUTTONS ===== */
+.buy-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #00e0ff, #007bff);
+    color: #000;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.buy-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 18px rgba(0, 224, 255, 0.5);
+}
+
+/* ===== BUY NOW BUTTON ===== */
+.buy-btn:last-child {
+    background: transparent;
+    border: 1px solid #00e0ff;
+    color: #00e0ff;
+}
+
+.buy-btn:last-child:hover {
+    background: #00e0ff;
+    color: #000;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .product-container {
+        padding: 30px 5%;
+        gap: 24px;
+    }
 }
