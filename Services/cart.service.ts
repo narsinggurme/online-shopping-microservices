@@ -23,6 +23,7 @@ export class CartService {
         }
     }
 
+
     addToCart(product: Product) {
         const index = this.cartItems.findIndex(i => i.product.id === product.id);
         if (index > -1) {
@@ -32,6 +33,12 @@ export class CartService {
             this.cartItems.push({ product, quantity: 1 });
         }
         this.updateCart();
+    }
+    clearCart() {
+        this.cartItems = [];
+        this.cartItems$.next([]);
+        this.cartCount.next(0);
+        localStorage.removeItem('cart');
     }
 
     updateQuantity(productId: string, quantity: number) {

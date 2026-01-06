@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../Services/cart.service';
 import { FormsModule } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { CartItem } from '../../src/app/models/cart-item.model';
+import { OrderService } from '../../Services/order.service';
 
 @Component({
   selector: 'app-cart',
@@ -17,7 +18,7 @@ export class CartComponent implements OnInit {
   cartItems$!: Observable<CartItem[]>;
   total = 0;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private orderService: OrderService) { }
 
   ngOnInit() {
     this.cartItems$ = this.cartService.cartItems$;
@@ -43,4 +44,44 @@ export class CartComponent implements OnInit {
   remove(productId: string) {
     this.cartService.removeFromCart(productId);
   }
+  checkout() {
+    this.cartItems$.subscribe(items => {
+
+      if (!items.length) {
+        return;
+      }
+
+      const userDetails = {
+        firstName: 'Narsing',
+        lastName: 'Gurme',
+        email: 'user@gmail.com'
+      };
+
+      const orderRequests = items.map(item => ({
+        orderNumber: crypto.randomUUID(),
+        skuCode: item.product.skuCode,
+        quantity: item.quantity,
+        price: item.product.price,
+        userDetails
+      }));
+
+      forkJoin(
+        orderRequests.map(order =>
+          this.orderService.placeOrder(order)
+        )
+      ).subscribe({
+        next: () => {
+          alert('Checkout successful');
+          this.cartService.clearCart();
+        },
+        error: err => {
+          console.error(err);
+          alert('Checkout failed. Please try again.');
+        }
+      });
+
+    }).unsubscribe();
+  }
+
+
 }
