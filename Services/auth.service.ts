@@ -8,13 +8,13 @@ export class AuthService {
 
   login(): void {
     keycloak.login({
-      redirectUri: window.location.origin + '/home', // redirect after login
+      redirectUri: window.location.origin + '/home',
     });
   }
 
   logout(): void {
     keycloak.logout({
-      redirectUri: window.location.origin, // back to home
+      redirectUri: window.location.origin,
     });
   }
 
