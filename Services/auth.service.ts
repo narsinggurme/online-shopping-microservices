@@ -6,9 +6,9 @@ import { keycloak } from '../src/app/KeyCloak/keycloak-init';
 })
 export class AuthService {
 
-  login(): void {
-    keycloak.login({
-      redirectUri: window.location.origin + '/home',
+  login(redirectUri?: string): Promise<void> {
+    return keycloak.login({
+      redirectUri: redirectUri || window.location.origin + '/home',
     });
   }
 

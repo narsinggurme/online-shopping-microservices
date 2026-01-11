@@ -6,6 +6,7 @@ import { forkJoin, Observable } from 'rxjs';
 import { CartItem } from '../../src/app/models/cart-item.model';
 import { OrderService } from '../../Services/order.service';
 import { KeycloakService } from '../../src/app/KeyCloak/keycloak.service';
+import { AuthService } from '../../Services/auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -25,7 +26,8 @@ export class CartComponent implements OnInit {
   };
 
 
-  constructor(private cartService: CartService, private orderService: OrderService, private keycloakService: KeycloakService) { }
+  constructor(private cartService: CartService, private orderService: OrderService, private keycloakService: KeycloakService, private authService: AuthService
+  ) { }
 
   ngOnInit() {
     this.cartItems$ = this.cartService.cartItems$;
@@ -66,21 +68,26 @@ export class CartComponent implements OnInit {
   remove(productId: string) {
     this.cartService.removeFromCart(productId);
   }
-  checkout() {
+  async checkout() {
+
+    // 🔐 Step 1: Check login
+    if (!this.authService.isLoggedIn()) {
+      console.log('User not logged in → redirecting to Keycloak');
+      await this.authService.login(window.location.origin + '/cart');
+      return;
+    }
+
+    // ✅ Step 2: User is logged in → proceed
     this.cartItems$.subscribe(items => {
 
-      if (!items.length) {
-        return;
-      }
-
-      const userDetails = this.userDetails;
+      if (!items.length) return;
 
       const orderRequests = items.map(item => ({
         orderNumber: crypto.randomUUID(),
         skuCode: item.product.skuCode,
         quantity: item.quantity,
         price: item.product.price,
-        userDetails
+        userDetails: this.userDetails
       }));
 
       forkJoin(
