@@ -20,7 +20,9 @@ export class ProductService {
   }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl, { headers: this.getHeaders() });
+    return this.http.get<Product[]>(this.apiUrl, {
+      headers: this.getHeaders()
+    });
   }
 
   getProductsByCategory(category: string): Observable<Product[]> {
@@ -30,8 +32,10 @@ export class ProductService {
     );
   }
 
-
   getProductById(id: string): Observable<Product> {
-    return this.http.get<Product>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() });
+    return this.http.get<Product>(
+      `${this.apiUrl}/${id}`,
+      { headers: this.getHeaders() }
+    );
   }
 }

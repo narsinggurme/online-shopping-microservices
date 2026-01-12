@@ -8,8 +8,10 @@ export const keycloak = new Keycloak({
 
 export function initializeKeycloak() {
     return keycloak.init({
-        onLoad: 'login-required',
+        onLoad: 'check-sso',
         pkceMethod: 'S256',
-        checkLoginIframe: false
+        checkLoginIframe: false,
+        silentCheckSsoRedirectUri:
+            window.location.origin + '/assets/silent-check-sso.html'
     });
 }

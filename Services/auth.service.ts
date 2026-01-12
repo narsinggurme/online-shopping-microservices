@@ -18,8 +18,11 @@ export class AuthService {
     });
   }
 
+  // isLoggedIn(): boolean {
+  //   return !!keycloak.token;
+  // }
   isLoggedIn(): boolean {
-    return !!keycloak.token;
+    return keycloak.authenticated === true;
   }
 
   getUsername(): string | undefined {

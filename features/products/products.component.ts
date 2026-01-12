@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../Services/product.service';
-import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { CartService } from '../../Services/cart.service';
+import { CommonModule } from "@angular/common";
+import { ProductService } from "../../Services/product.service";
+import { FormsModule } from "@angular/forms";
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { CartService } from "../../Services/cart.service";
 
 @Component({
   selector: 'app-products',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './products.component.html',
-  styleUrl: './products.component.css'
+  styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
 
@@ -39,7 +39,6 @@ export class ProductsComponent implements OnInit {
   isInCart(productId: string): boolean {
     return this.cartService.isInCart(productId);
   }
-
 
   goToCart() {
     this.router.navigate(['/cart']);
