@@ -108,10 +108,14 @@ export class CartComponent implements OnInit {
           this.cartService.clearCart();
         },
         error: err => {
-          console.error(err);
-          alert('Checkout failed. Please try again.');
+          if (err.status === 400) {
+            alert(err.error);
+          } else {
+            alert('Service unavailable. Please try again later.');
+          }
         }
       });
+
     });
   }
 }
