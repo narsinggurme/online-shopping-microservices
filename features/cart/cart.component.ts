@@ -78,14 +78,12 @@ export class CartComponent implements OnInit {
 
   async checkout(): Promise<void> {
 
-    // 🔐 Step 1: Force login if not authenticated
     if (!this.authService.isLoggedIn()) {
       console.log('User not logged in → redirecting to Keycloak');
       await this.authService.login(window.location.origin + '/cart');
       return;
     }
 
-    // ✅ Step 2: Proceed with checkout
     this.cartItems$.pipe(take(1)).subscribe(items => {
 
       if (!items.length) return;
@@ -108,8 +106,8 @@ export class CartComponent implements OnInit {
           this.cartService.clearCart();
         },
         error: err => {
-          if (err.status === 400) {
-            alert(err.error);
+          if (err.status === 409 && err.error?.code === 'OUT_OF_STOCK') {
+            alert(err.error.message);
           } else {
             alert('Service unavailable. Please try again later.');
           }
