@@ -1,10 +1,8 @@
 export const environment = {
     production: false,
-
     api: {
         baseUrl: 'http://localhost:8084/api',
-        inventoryService: '/inventory',
-        orderService: '/order',
-        productService: '/products'
+        productService: '/products',
+        orderService: '/orders'
     }
 };

@@ -23,10 +23,10 @@ export class MenComponent implements OnInit {
 
   ngOnInit(): void {
     this.productServie.getProductsByCategory('M').subscribe(data => {
+      console.log('Products response:', data);
       this.products = data;
     });
   }
-
 
   viewProduct(id: number) {
     this.router.navigate(['/product-details', id]);
