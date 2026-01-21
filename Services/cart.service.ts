@@ -14,7 +14,6 @@ export class CartService {
     cartItems$ = new BehaviorSubject<CartItem[]>([]);
 
     constructor() {
-        // Load cart from localStorage if needed
         const stored = localStorage.getItem('cart');
         if (stored) {
             this.cartItems = JSON.parse(stored);
@@ -23,11 +22,9 @@ export class CartService {
         }
     }
 
-
     addToCart(product: Product) {
         const index = this.cartItems.findIndex(i => i.product.id === product.id);
         if (index > -1) {
-            // Already in cart → increment quantity
             this.cartItems[index].quantity++;
         } else {
             this.cartItems.push({ product, quantity: 1 });

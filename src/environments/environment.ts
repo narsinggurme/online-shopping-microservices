@@ -4,7 +4,7 @@ export const environment = {
     api: {
         baseUrl: 'http://localhost:8084/api',
         inventoryService: '/inventory',
-        orderService: '/orders',
+        orderService: '/order',
         productService: '/products'
     }
 };
