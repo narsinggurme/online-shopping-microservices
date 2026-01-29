@@ -87,6 +87,7 @@ export class CartComponent implements OnInit {
     this.cartItems$.pipe(take(1)).subscribe(items => {
 
       if (!items.length) return;
+      console.log('Cart items before checkout:', items);
 
       const orderRequests = items.map(item => ({
         orderNumber: crypto.randomUUID(),
@@ -94,6 +95,7 @@ export class CartComponent implements OnInit {
         quantity: item.quantity,
         price: item.product.price,
         userDetails: this.userDetails
+
       }));
 
       forkJoin(

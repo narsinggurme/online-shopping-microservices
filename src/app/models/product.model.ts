@@ -3,6 +3,7 @@ import { ProductComment } from "./comment.model";
 export interface Product {
     id: string;
     skuCode: string;
+    category: string;
     name: string;
     description: string;
     price: number;

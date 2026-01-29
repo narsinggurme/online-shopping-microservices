@@ -9,7 +9,6 @@
 
 <div class="cart-wrapper" *ngIf="(cartItems$ | async)?.length">
 
-    <!-- LEFT : CART ITEMS -->
     <div class="cart-items">
         <div class="cart-card" *ngFor="let item of cartItems$ | async">
 
